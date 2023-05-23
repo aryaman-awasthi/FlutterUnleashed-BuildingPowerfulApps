@@ -1,0 +1,31 @@
+-- Comparing the keywords --
+
+const String personConst = 'Jeroen';
+final String personFinal = 'Jeroen';
+personConst = 'Bob'; // Not allowed
+personFinal = 'Bob'; // Not allowed
+In the code above we create a const and a final variable and assign my name to both. You can’t re-assign both of them.
+
+But what is the difference?
+
+-- final --
+
+- A variable with the final keyword will be initialized at runtime and can only be assigned for a single time.
+- In a class and function, you can define a final variable.
+
+-- const --
+
+- A variable with the const keyword is initialized at compile-time and is already assigned when at runtime.
+- You can’t define const inside a class. But you can in a function.
+- For Flutter specific, everything in the build method won’t be initialized again when the state is updated.
+- const can’t be changed during runtime.
+
+
+When to use which keyword?
+A simple example for both:
+
+Use final: If you don’t know what it’s value will be at compile-time. For example, when you can need to get data from an API, this happens when running your code.
+Use const: If you are sure that a value isn’t going to be changed when running your code. For example, when you declare a sentence that always remains the same.
+
+
+SOURCE: https://itnext.io/difference-between-const-and-final-in-dart-78c129d0c573
