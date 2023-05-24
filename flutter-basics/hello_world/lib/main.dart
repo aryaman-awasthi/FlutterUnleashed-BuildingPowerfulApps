@@ -15,6 +15,8 @@ class MyApp extends StatelessWidget {
             appBarTheme: const AppBarTheme(
           backgroundColor: Colors.amber,
         )),
+
+        
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
@@ -23,22 +25,41 @@ class MyApp extends StatelessWidget {
           ),
           body: Center(
             child: Container(
-              height: 200,
-              width: 200,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Center(
-                child: Text(
-                  "Hello World!",
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 20,
-                  ),
+                height: 200,
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(10),
                 ),
-              ),
-            ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start, //L
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      color: Colors.green,
+                      child: const Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Text('First Col Child'),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.black),
+                      child: const Text(
+                        'Col 2',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 20,
+                        ),
+                      ),
+                    )
+                  ],
+                )),
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () => debugPrint('clicked'),
