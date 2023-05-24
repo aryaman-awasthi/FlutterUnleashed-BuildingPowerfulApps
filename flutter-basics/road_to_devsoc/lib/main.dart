@@ -72,18 +72,27 @@ class TaskList extends StatelessWidget {
   }
 }
 
-class TaskItem extends StatelessWidget {
+class TaskItem extends StatefulWidget {
 
   final String label;
 
   const TaskItem({Key? key, required this.label}) : super (key: key);
 
   @override
+  State<TaskItem> createState() => _TaskItemState();
+}
+
+class _TaskItemState extends State<TaskItem> {
+  bool? _val = false;
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Checkbox(value: false, onChanged: null),
-        Text(label)
+        Checkbox(
+          onChanged: (newValue) => setState(() => _val = newValue), // To tell flutter that the state has changed we make a call setState which takes a function and makes change which we need
+        value: _val,),
+        Text(widget.label)
       ],
     );
   }
